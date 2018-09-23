@@ -41,6 +41,7 @@ public interface LiveService {
     @GET("room/v1/Area/getList?show_pinyin=1")
     Call<LiveAreaListEntity> getLiveAreaList();
 
+
     /**
      * 获取直播间信息（主要是拿roomId）
      *
@@ -48,6 +49,15 @@ public interface LiveService {
      */
     @GET("i/api/liveinfo")
     Call<LiveInfoEntity> getLiveInfo();
+
+    /**
+     * 更新房间标题
+     *
+     * @return
+     */
+    @POST("room/v1/Room/update")
+    @FormUrlEncoded
+    Call<UpdateRoomTitleEntity> updateRoomTitle(@Field("room_id") String roomId, @Field("title") String title, @Field("csrf_token") String csrfToken);
 
     /**
      * 根据roomId 获取推流的地址
@@ -68,8 +78,9 @@ public interface LiveService {
      * @return StartLiveEntity
      */
     @POST("room/v1/Room/startLive")
-    Call<StartLiveEntity> startLive(@Query("room_id") String roomId, @Query("platform") String platform,
-                                    @Query("area_v2") String areaId, @Query("csrf_token") String csrfToken);
+    @FormUrlEncoded
+    Call<StartLiveEntity> startLive(@Field("room_id") String roomId, @Field("platform") String platform,
+                                    @Field("area_v2") String areaId, @Field("csrf_token") String csrfToken);
 
     /**
      * 停止直播
@@ -81,6 +92,6 @@ public interface LiveService {
      * @return
      */
     @POST("room/v1/Room/stopLive")
-    Call<StopLiveEntity> stopLive(@Query("room_id") String roomId, @Query("platform") String platform,
-                                  @Query("area_v2") String areaId, @Query("csrf_token") String csrfToken);
+    @FormUrlEncoded
+    Call<StopLiveEntity> stopLive(@Field("room_id") String roomId, @Field("platform") String platform, @Field("csrf_token") String csrfToken);
 }

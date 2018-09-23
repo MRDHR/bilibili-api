@@ -391,8 +391,8 @@ public class LiveInfoEntity {
             private int user_intimacy;
             private int user_next_intimacy;
             private String user_level_rank;
-            private int bili_coins;
-            private int coins;
+            private String bili_coins;
+            private String coins;
 
             public int getRcost() {
                 return rcost;
@@ -554,19 +554,19 @@ public class LiveInfoEntity {
                 this.user_level_rank = user_level_rank;
             }
 
-            public int getBili_coins() {
+            public String getBili_coins() {
                 return bili_coins;
             }
 
-            public void setBili_coins(int bili_coins) {
+            public void setBili_coins(String bili_coins) {
                 this.bili_coins = bili_coins;
             }
 
-            public int getCoins() {
+            public String getCoins() {
                 return coins;
             }
 
-            public void setCoins(int coins) {
+            public void setCoins(String coins) {
                 this.coins = coins;
             }
 
